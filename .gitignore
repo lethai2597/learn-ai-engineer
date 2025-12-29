@@ -1,0 +1,80 @@
+# Dependencies
+**/node_modules/
+node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing
+**/coverage/
+coverage/
+*.lcov
+.nyc_output
+
+# Build outputs
+**/dist/
+dist/
+**/build/
+build/
+**/.next/
+.next/
+**/out/
+out/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Misc
+*.pem
+.cache/
+.temp/
+.tmp/
+
+# Backend specific (NestJS)
+backend/dist/
+backend/coverage/
+
+# Frontend specific (Next.js)
+frontend/.next/
+frontend/out/
+frontend/.vercel
+**/.vercel
+

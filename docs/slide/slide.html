@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Roadmap: Từ Software Engineer/Web Dev đến AI Application Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@400;700;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><style>
+    * { box-sizing: border-box; }
+    :root {
+      --bg-color: #f2f2f2;
+      --accent-yellow: #fff500; --accent-pink: #ff00ff;
+      --accent-blue: #00ffff; --accent-green: #00ff00;
+      --accent-black: #000000; --border-thickness: 4px;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #222;
+      font-family: 'Space Mono', monospace;
+      margin: 0; padding: 0;
+      overflow-x: hidden;
+    }
+    .slides-wrapper {
+      display: flex; flex-direction: column;
+      align-items: center;
+    }
+    .slide-container {
+      width: 1280px; height: 720px;
+      background-color: var(--bg-color);
+      border: var(--border-thickness) solid var(--accent-black);
+      box-shadow: 12px 12px 0px var(--accent-black);
+      position: relative; overflow: hidden;
+      padding: 50px 60px;
+      display: flex; flex-direction: column; justify-content: center;
+      margin: calc((100vh - 720px) / 2) 0;
+      scroll-snap-align: center;
+      flex-shrink: 0;
+    }
+    .slide-header {
+      position: absolute; top: 0; left: 0;
+      background: var(--accent-black); color: var(--accent-yellow);
+      padding: 8px 20px; font-family: 'Lexend Mega'; font-size: 13px; font-weight: 700;
+      border-bottom: 4px solid var(--accent-pink); border-right: 4px solid var(--accent-pink);
+      z-index: 100; text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: 'Lexend Mega'; text-transform: uppercase; color: #000; margin: 0; }
+    h1 { font-size: 72px; font-weight: 900; line-height: 0.9; text-shadow: 4px 4px 0px var(--accent-pink); }
+    h2 { font-size: 42px; background: var(--accent-yellow); border: 4px solid black; padding: 10px 20px; display: inline-block; box-shadow: 6px 6px 0px black; }
+    h3 { font-size: 28px; line-height: 1.05; }
+    .neo-box { background: white; border: 4px solid black; padding: 25px; box-shadow: 6px 6px 0px black; }
+    .code-block { background: #000; color: #00ff00; padding: 20px; border: 4px solid #ff00ff; font-family: 'Space Mono', monospace; font-size: 18px; font-weight: 700; }
+    .muted { color: rgba(0,0,0,0.75); }
+    .kicker { font-size: 20px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+    .big { font-size: 26px; font-weight: 700; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; align-items: stretch; }
+    .row { display: flex; gap: 18px; align-items: stretch; }
+    .col { flex: 1; }
+    .pill {
+      display: inline-flex; gap: 10px; align-items: center;
+      padding: 10px 14px; border: 4px solid #000; box-shadow: 6px 6px 0 #000;
+      font-weight: 700; text-transform: uppercase; background: var(--accent-blue);
+    }
+    .pill.yellow { background: var(--accent-yellow); }
+    .pill.pink { background: var(--accent-pink); color: #fff; }
+    .pill.green { background: var(--accent-green); }
+    ul { margin: 0; padding-left: 20px; }
+    li { font-size: 22px; font-weight: 700; margin: 8px 0; }
+    .slide-footer {
+      position: absolute; bottom: 18px; right: 22px;
+      font-family: 'Lexend Mega'; font-size: 13px; font-weight: 900; text-transform: uppercase;
+      background: #fff; border: 4px solid #000; padding: 6px 10px; box-shadow: 6px 6px 0 #000;
+    }
+    .rotate-1 { transform: rotate(1deg); }
+    .rotate--1 { transform: rotate(-1deg); }
+    .banner {
+      background: var(--accent-black); color: var(--accent-yellow);
+      border: 4px solid #000; box-shadow: 6px 6px 0 #000;
+      padding: 14px 18px; font-family: 'Lexend Mega'; text-transform: uppercase; font-weight: 900;
+      display: inline-block;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 4px solid #000;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: #fff;
+      box-shadow: 6px 6px 0 #000;
+      font-size: 14px;
+    }
+    .callout {
+      border: 4px solid #000;
+      background: var(--accent-yellow);
+      padding: 16px 18px;
+      box-shadow: 8px 8px 0 #000;
+      font-size: 22px;
+      font-weight: 700;
+    }
+    .mono { font-family: 'Space Mono', monospace; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <div class="slides-wrapper">
+    <section class="slide-container" data-slide="1">
+      <div class="slide-header">lehuythai.com</div>
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div class="banner">Roadmap</div>
+        <h1>TỪ WEB/APP DEV<br/>ĐẾN AI APP<br/>ENGINEER</h1>
+        <div class="neo-box" style="background: var(--accent-yellow);">
+          <div class="big">Không chỉ là: User → Prompt → LLM → Response</div>
+        </div>
+      </div>
+      <div class="slide-footer">01 / 29</div>
+    </section>
+
+    <section class="slide-container" data-slide="2">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>KIẾN TRÚC THỰC TẾ</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box">
+          <div class="pill yellow"><i class="fa-solid fa-brain"></i> Bộ não (LLM)</div>
+          <ul style="margin-top:14px;">
+            <li>GPT‑4 / Claude / Llama / Mistral</li>
+            <li>Chọn đúng model = tiết kiệm tiền + tăng chất lượng</li>
+          </ul>
+        </div>
+        <div class="neo-box">
+          <div class="pill"><i class="fa-solid fa-database"></i> Bộ nhớ dài hạn (RAG)</div>
+          <ul style="margin-top:14px;">
+            <li>Embeddings → Vector DB</li>
+            <li>Chat dựa trên dữ liệu riêng</li>
+          </ul>
+        </div>
+        <div class="neo-box">
+          <div class="pill pink"><i class="fa-solid fa-comment-dots"></i> Bộ nhớ ngắn hạn</div>
+          <ul style="margin-top:14px;">
+            <li>Quản lý context hội thoại</li>
+            <li>Tràn context = trả lời “mất trí”</li>
+          </ul>
+        </div>
+        <div class="neo-box">
+          <div class="pill green"><i class="fa-solid fa-screwdriver-wrench"></i> Tools / Actions</div>
+          <ul style="margin-top:14px;">
+            <li>Gọi API, lướt web, DB, email…</li>
+            <li>Agent: nói ít, làm nhiều</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">02 / 29</div>
+    </section>
+
+    <section class="slide-container" data-slide="3">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>DÂY THẦN KINH</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box">
+          <h3>ORCHESTRATION</h3>
+          <ul style="margin-top:14px;">
+            <li>Chains: nối bước</li>
+            <li>Routing: rẽ nhánh theo use-case</li>
+            <li>State: nhớ đang ở bước nào</li>
+          </ul>
+        </div>
+        <div class="col neo-box rotate-1">
+          <div class="callout">AI APP = FLOW (LUỒNG)<br/>không phải "một prompt thần thánh"</div>
+          <div style="margin-top:14px; font-size:22px; font-weight:700;">Stack hay: LangChain / LangGraph / Vercel AI SDK</div>
+        </div>
+      </div>
+      <div class="slide-footer">03 / 30</div>
+    </section>
+
+    <section class="slide-container" data-slide="4">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>TỔNG QUAN 6 GIAI ĐOẠN</h2>
+      <div class="grid-3" style="margin-top:22px;">
+        <div class="neo-box rotate--1">
+          <div class="badge">1</div>
+          <div class="big" style="margin-top:10px;">LLM Control</div>
+          <div class="muted" style="margin-top:10px; font-size:20px; font-weight:700;">Prompt + JSON + Streaming + Model</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="badge">2</div>
+          <div class="big" style="margin-top:10px;">RAG</div>
+          <div class="muted" style="margin-top:10px; font-size:20px; font-weight:700;">Embeddings + Vector DB + Chunking</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">3</div>
+          <div class="big" style="margin-top:10px;">Orchestration</div>
+          <div class="muted" style="margin-top:10px; font-size:20px; font-weight:700;">Memory + Chains + Routing</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="badge">4</div>
+          <div class="big" style="margin-top:10px;">Agents</div>
+          <div class="muted" style="margin-top:10px; font-size:20px; font-weight:700;">Tool Calling + ReAct</div>
+        </div>
+        <div class="neo-box rotate--1">
+          <div class="badge">5</div>
+          <div class="big" style="margin-top:10px;">LLMOps</div>
+          <div class="muted" style="margin-top:10px; font-size:20px; font-weight:700;">Evals + Observability + Cost + Security</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">6</div>
+          <div class="big" style="margin-top:10px;">Advanced</div>
+          <div class="muted" style="margin-top:10px; font-size:20px; font-weight:700;">Multi-modal + Fine-tuning + Local</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">Từ cơ bản → nâng cao: mỗi giai đoạn xây trên giai đoạn trước</div>
+      <div class="slide-footer">04 / 30</div>
+    </section>
+
+    <section class="slide-container" data-slide="5">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>GIAI ĐOẠN 1</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">Kiểm soát “Bộ não” (LLM Control & Interface)</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Mục tiêu: Input chuẩn + Output dùng được trong code</div>
+      </div>
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="neo-box">
+          <div class="badge">1.1</div>
+          <div class="big" style="margin-top:10px;">Prompt Engineering</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Thiết kế input để giảm hallucination</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">1.2</div>
+          <div class="big" style="margin-top:10px;">Structured Output</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Ép JSON theo schema (Zod/JSON Schema)</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">1.3</div>
+          <div class="big" style="margin-top:10px;">Streaming</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Token‑by‑token = UX mượt</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">1.4</div>
+          <div class="big" style="margin-top:10px;">Model Selection</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Cost vs Quality vs Speed</div>
+        </div>
+      </div>
+      <div class="slide-footer">05 / 30</div>
+    </section>
+
+    <section class="slide-container" data-slide="6">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>1.1 PROMPT ENGINEERING</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box">
+          <h3>CÁI NÀY LÀ GÌ?</h3>
+          <div style="margin-top:12px; font-size:22px; font-weight:700;">Không phải “văn mẫu”. Là <span class="mono">spec</span> cho model.</div>
+          <ul style="margin-top:14px;">
+            <li>Role + Context + Constraints</li>
+            <li>Format output rõ ràng</li>
+            <li>Ví dụ mẫu khi cần</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate-1">
+          <h3>PATTERNS</h3>
+          <div style="margin-top:14px; display:flex; flex-wrap:wrap; gap:12px;">
+            <span class="pill yellow">Zero‑shot</span>
+            <span class="pill">Few‑shot</span>
+            <span class="pill pink">Chain‑of‑Thought*</span>
+          </div>
+          <div class="muted" style="margin-top:14px; font-size:20px; font-weight:700;">*Trong sản phẩm: ưu tiên “kết quả” hơn “lộ suy nghĩ”.</div>
+          <div class="callout" style="margin-top:14px;">Mục tiêu: giảm “ảo giác” + tăng logic</div>
+        </div>
+      </div>
+      <div class="slide-footer">06 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>1.2 STRUCTURED OUTPUT</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box">
+          <h3>TẠI SAO?</h3>
+          <ul style="margin-top:14px;">
+            <li>Backend cần <span class="mono">JSON.parse()</span></li>
+            <li>Không parse “đoạn văn” được</li>
+            <li>Validate = giảm bug âm thầm</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Ép output theo Schema = cầu nối Web Dev → AI</div>
+        </div>
+        <div class="col code-block rotate--1">
+          <div style="font-size:20px; font-weight:700; color:#fff;">Ví dụ object nhận về:</div>
+          <div style="margin-top:12px;">{</div>
+          <div style="margin-left:20px;">"name": "Nam",</div>
+          <div style="margin-left:20px;">"skills": ["React","Node"],</div>
+          <div style="margin-left:20px;">"exp": 5</div>
+          <div>}</div>
+        </div>
+      </div>
+      <div class="slide-footer">07 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>1.3 STREAMING</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box">
+          <h3>UX QUYẾT ĐỊNH</h3>
+          <ul style="margin-top:14px;">
+            <li>Không ai chờ 30s màn hình trống</li>
+            <li>Stream từng token = “đang nghĩ”</li>
+            <li>Cho phép Stop/Abort giữa chừng</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate-1">
+          <h3>SSE VS WEBSOCKET</h3>
+          <div style="margin-top:14px; font-size:22px; font-weight:700;">SSE đơn giản, đủ cho đa số use-case AI.</div>
+          <div class="callout" style="margin-top:16px;">Edge cases: mất kết nối, retry, hủy stream</div>
+        </div>
+      </div>
+      <div class="slide-footer">08 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>1.4 CHỌN MODEL</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">Trade‑off: Cost vs Quality vs Speed</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Không phải task nào cũng cần model “đắt nhất”.</div>
+      </div>
+      <div class="grid-3" style="margin-top:18px;">
+        <div class="neo-box rotate--1">
+          <div class="pill yellow"><i class="fa-solid fa-bolt"></i> Simple</div>
+          <ul style="margin-top:14px;">
+            <li>GPT‑3.5 / model rẻ</li>
+            <li>Nhanh, ổn</li>
+          </ul>
+        </div>
+        <div class="neo-box">
+          <div class="pill"><i class="fa-solid fa-diagram-project"></i> Complex</div>
+          <ul style="margin-top:14px;">
+            <li>Claude / GPT‑4</li>
+            <li>Lý luận mạnh</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="pill pink"><i class="fa-solid fa-code"></i> Code</div>
+          <ul style="margin-top:14px;">
+            <li>Llama Code / model chuyên code</li>
+            <li>Rẻ hơn, đúng hơn</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">09 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>GIAI ĐOẠN 2</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">RAG (Retrieval Augmented Generation)</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Mục tiêu: AI trả lời dựa trên dữ liệu riêng (PDF, DB công ty).</div>
+      </div>
+      <div class="grid-3" style="margin-top:18px;">
+        <div class="neo-box rotate-1">
+          <div class="badge">2.1</div>
+          <div class="big" style="margin-top:10px;">Embeddings</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Text → Vector</div>
+        </div>
+        <div class="neo-box rotate--1">
+          <div class="badge">2.2</div>
+          <div class="big" style="margin-top:10px;">Vector DB</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Lưu + query vector nhanh</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">2.3</div>
+          <div class="big" style="margin-top:10px;">Chunking</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Cắt dữ liệu đúng cách</div>
+        </div>
+      </div>
+      <div class="slide-footer">10 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>2.1 EMBEDDINGS</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box">
+          <h3>Ý NGHĨA</h3>
+          <ul style="margin-top:14px;">
+            <li>Biến text thành mảng số (vector)</li>
+            <li>Câu “giống nghĩa” → gần nhau trong không gian</li>
+            <li>Semantic search thay cho keyword</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Từ “Con chó” vẫn ra “Gâu gâu”</div>
+        </div>
+        <div class="col code-block rotate--1">
+          <div>getVector("Quả táo")</div>
+          <div style="margin-top:12px;">[0.012, -0.231, 0.88, ...]</div>
+          <div style="margin-top:18px; color:#fff; font-size:18px;">Cosine Similarity = độ tương đồng</div>
+        </div>
+      </div>
+      <div class="slide-footer">11 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>2.2 VECTOR DATABASE</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box rotate--1">
+          <h3>NÓ THAY THẾ GÌ?</h3>
+          <div style="margin-top:12px; font-size:22px; font-weight:700;">Không còn <span class="mono">LIKE %keyword%</span> “mù chữ”.</div>
+          <ul style="margin-top:14px;">
+            <li>Query theo ý nghĩa</li>
+            <li>Trả về top‑k đoạn liên quan</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate-1">
+          <h3>CHỌN DB</h3>
+          <ul style="margin-top:14px;">
+            <li>Postgres: <span class="mono">pgvector</span></li>
+            <li>SaaS: Pinecone</li>
+            <li>Local: ChromaDB</li>
+            <li>Web‑friendly: Supabase Vector</li>
+          </ul>
+          <div class="callout" style="margin-top:16px;">Mục tiêu: nhanh, rẻ, dễ vận hành</div>
+        </div>
+      </div>
+      <div class="slide-footer">12 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>2.3 CHUNKING STRATEGY</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box">
+          <h3>CẮT DỮ LIỆU THẾ NÀO?</h3>
+          <ul style="margin-top:14px;">
+            <li>Quá dài: tốn tiền, nhiễu</li>
+            <li>Quá ngắn: mất ngữ cảnh</li>
+            <li>Overlap: gối đầu để giữ context</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Chunking sai = RAG “tự bắn vào chân”</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <h3>TOOLS</h3>
+          <ul style="margin-top:14px;">
+            <li><span class="mono">RecursiveCharacterTextSplitter</span></li>
+            <li>LangChain document loaders</li>
+            <li>LlamaIndex.TS xử lý data mạnh</li>
+          </ul>
+          <div class="muted" style="margin-top:14px; font-size:22px; font-weight:700;">Pipeline mẫu: Upload → Chunk → Embed → Store → Chat</div>
+        </div>
+      </div>
+      <div class="slide-footer">13 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>GIAI ĐOẠN 3</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">Orchestration & Memory</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Mục tiêu: chat phức tạp, nhớ được hội thoại, không “lụt” context.</div>
+      </div>
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="neo-box rotate--1">
+          <div class="badge">3.1</div>
+          <div class="big" style="margin-top:10px;">Conversation Memory</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">LLM stateless → bạn phải stateful</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="badge">3.2</div>
+          <div class="big" style="margin-top:10px;">Chains & Routing</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Flow‑based thinking</div>
+        </div>
+      </div>
+      <div class="slide-footer">14 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>3.1 MEMORY MANAGEMENT</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box rotate-1">
+          <h3>VẤN ĐỀ GỐC</h3>
+          <ul style="margin-top:14px;">
+            <li>LLM không tự nhớ</li>
+            <li>Lịch sử dài → tràn context window</li>
+            <li>Gửi quá nhiều → tốn tiền</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate--1">
+          <h3>GIẢI PHÁP PHỔ BIẾN</h3>
+          <ul style="margin-top:14px;">
+            <li>Sliding Window: giữ N tin mới nhất</li>
+            <li>Summarization: tóm tắt tin cũ</li>
+            <li>Checkpointer / Redis lưu session</li>
+          </ul>
+          <div class="callout" style="margin-top:16px;">Nhớ đúng thứ cần nhớ, không phải nhớ tất cả</div>
+        </div>
+      </div>
+      <div class="slide-footer">15 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>3.2 CHAINS & ROUTING</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box">
+          <h3>FLOW‑BASED</h3>
+          <ul style="margin-top:14px;">
+            <li>Nối bước: extract → retrieve → generate</li>
+            <li>Rẽ nhánh: theo độ khó / domain</li>
+            <li>Native code dễ debug hơn “magic”</li>
+          </ul>
+        </div>
+        <div class="col neo-box rotate--1">
+          <h3>VÍ DỤ ROUTING</h3>
+          <div class="code-block" style="margin-top:14px;">
+            <div>If: câu đơn giản → model rẻ</div>
+            <div style="margin-top:10px;">Else: câu phức tạp → model mạnh</div>
+            <div style="margin-top:10px;">If: code → model chuyên code</div>
+          </div>
+          <div class="muted" style="margin-top:14px; font-size:22px; font-weight:700;">Mục tiêu: rẻ hơn, nhanh hơn, vẫn đúng</div>
+        </div>
+      </div>
+      <div class="slide-footer">16 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>GIAI ĐOẠN 4</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">Agents (AI tự hành động)</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Mục tiêu: AI không chỉ “nói”, mà “làm” qua tools.</div>
+      </div>
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="neo-box rotate-1">
+          <div class="badge">4.1</div>
+          <div class="big" style="margin-top:10px;">Tool Calling</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">AI trả JSON để gọi hàm</div>
+        </div>
+        <div class="neo-box rotate--1">
+          <div class="badge">4.2</div>
+          <div class="big" style="margin-top:10px;">ReAct Pattern</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Reason → Act → Observe → Loop</div>
+        </div>
+      </div>
+      <div class="slide-footer">17 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>4.1 TOOL CALLING</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box">
+          <h3>Ý TƯỞNG</h3>
+          <ul style="margin-top:14px;">
+            <li>Bạn “mô tả” tool: sendEmail(to, body)</li>
+            <li>AI trả JSON: gọi tool với params</li>
+            <li>App execute thật, không tưởng tượng</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Doc/description càng rõ → tool càng ít gọi sai</div>
+        </div>
+        <div class="code-block rotate--1">
+          <div style="color:#fff;">AI output (dạng JSON):</div>
+          <div style="margin-top:12px;">{</div>
+          <div style="margin-left:20px;">"tool": "sendEmail",</div>
+          <div style="margin-left:20px;">"args": { "to": "...", "body": "..." }</div>
+          <div>}</div>
+        </div>
+      </div>
+      <div class="slide-footer">18 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>4.2 REACT PATTERN</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box rotate-1">
+          <h3>VÒNG LẶP TƯ DUY</h3>
+          <ul style="margin-top:14px;">
+            <li>Reason: suy nghĩ</li>
+            <li>Act: dùng tool</li>
+            <li>Observe: đọc kết quả</li>
+            <li>Loop: tiếp tục đến khi xong</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Bài toán nhiều bước → ReAct thắng</div>
+        </div>
+        <div class="col code-block rotate--1">
+          <div>while (!done) {</div>
+          <div style="margin-left:20px;">think()</div>
+          <div style="margin-left:20px;">tool = pickTool()</div>
+          <div style="margin-left:20px;">result = run(tool)</div>
+          <div style="margin-left:20px;">observe(result)</div>
+          <div>}</div>
+        </div>
+      </div>
+      <div class="slide-footer">19 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>GIAI ĐOẠN 5</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">Production & LLMOps</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Mục tiêu: chạy ổn định, rẻ, và biết nó sai ở đâu.</div>
+      </div>
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="neo-box rotate--1">
+          <div class="badge">5.1</div>
+          <div class="big" style="margin-top:10px;">Evaluation (Evals)</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Unit test cho AI</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="badge">5.2</div>
+          <div class="big" style="margin-top:10px;">Observability</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Tracing, debugging, monitoring</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="badge">5.3</div>
+          <div class="big" style="margin-top:10px;">Cost Optimization</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Token + caching + routing</div>
+        </div>
+        <div class="neo-box rotate--1">
+          <div class="badge">5.4–5.5</div>
+          <div class="big" style="margin-top:10px;">Security + Error Handling</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Prompt injection + retry logic</div>
+        </div>
+      </div>
+      <div class="slide-footer">20 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>5.1 EVALS</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box">
+          <h3>UNIT TEST CHO AI</h3>
+          <ul style="margin-top:14px;">
+            <li>Golden dataset: Q + A chuẩn</li>
+            <li>LLM‑as‑a‑Judge chấm điểm</li>
+            <li>CI/CD: block merge nếu degrade</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Sửa prompt xong phải biết “có ngu đi không”</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <h3>TOOLS</h3>
+          <ul style="margin-top:14px;">
+            <li>LangSmith</li>
+            <li>PromptFoo</li>
+          </ul>
+          <div class="muted" style="margin-top:14px; font-size:22px; font-weight:700;">Evals tốt = ship tự tin</div>
+        </div>
+      </div>
+      <div class="slide-footer">21 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>5.2 OBSERVABILITY</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box rotate--1">
+          <h3>TẠI SAO CẦN?</h3>
+          <ul style="margin-top:14px;">
+            <li><span class="mono">console.log</span> không đủ</li>
+            <li>Cần xem: context nào được gửi</li>
+            <li>Tool nào được gọi + params</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Debug AI = debug “dữ liệu vào”</div>
+        </div>
+        <div class="col neo-box rotate-1">
+          <h3>TOOLS</h3>
+          <ul style="margin-top:14px;">
+            <li>LangSmith</li>
+            <li>Arize Phoenix</li>
+            <li>Helicone</li>
+          </ul>
+          <div class="muted" style="margin-top:14px; font-size:22px; font-weight:700;">Dashboard: ai sai ở đâu, vì sao</div>
+        </div>
+      </div>
+      <div class="slide-footer">22 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>5.3 COST OPTIMIZATION</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box rotate-1">
+          <h3>CHIẾN LƯỢC</h3>
+          <ul style="margin-top:14px;">
+            <li>Token counting + max_tokens</li>
+            <li>Caching: prompt / semantic (Redis)</li>
+            <li>Route sang model rẻ khi có thể</li>
+            <li>Batch processing (giảm giá)</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate--1">
+          <h3>KẾT QUẢ MONG MUỐN</h3>
+          <div class="callout" style="margin-top:14px;">/chat đang tốn $150/ngày → tối ưu xuống $70/ngày</div>
+          <div style="margin-top:14px; font-size:22px; font-weight:700;">Theo dõi cost theo user/endpoint/model.</div>
+          <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap;">
+            <span class="pill yellow">tiktoken</span>
+            <span class="pill">Upstash Redis</span>
+            <span class="pill pink">Helicone</span>
+          </div>
+        </div>
+      </div>
+      <div class="slide-footer">23 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>5.4 SECURITY & SAFETY</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box rotate--1">
+          <h3>RỦI RO ĐẶC THÙ</h3>
+          <ul style="margin-top:14px;">
+            <li>Prompt Injection</li>
+            <li>Data Leakage</li>
+            <li>PII lộ thông tin nhạy cảm</li>
+            <li>Spam làm cháy budget</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate-1">
+          <h3>PHÒNG THỦ</h3>
+          <ul style="margin-top:14px;">
+            <li>Input validation + detect pattern tấn công</li>
+            <li>PII detection & redaction</li>
+            <li>Moderation / content filter</li>
+            <li>Rate limiting</li>
+          </ul>
+          <div class="callout" style="margin-top:16px;">“Ignore all rules…” → chặn ngay</div>
+        </div>
+      </div>
+      <div class="slide-footer">24 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>5.5 ERROR HANDLING</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box rotate-1">
+          <h3>LỖI THƯỜNG GẶP</h3>
+          <ul style="margin-top:14px;">
+            <li>429 rate limit</li>
+            <li>500 server error</li>
+            <li>Timeout</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">API không bao giờ 100% uptime</div>
+        </div>
+        <div class="col neo-box rotate--1">
+          <h3>PATTERNS</h3>
+          <ul style="margin-top:14px;">
+            <li>Exponential backoff + jitter</li>
+            <li>Fallback models</li>
+            <li>Circuit breaker</li>
+            <li>Timeout config: 10s/30s tuỳ loại</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">25 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>GIAI ĐOẠN 6</h2>
+      <div class="neo-box" style="margin-top:22px;">
+        <div class="big">Advanced Topics</div>
+        <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Mục tiêu: mở rộng khả năng AI app sang nhiều lĩnh vực.</div>
+      </div>
+      <div class="grid-3" style="margin-top:18px;">
+        <div class="neo-box rotate--1">
+          <div class="badge">6.1</div>
+          <div class="big" style="margin-top:10px;">Multi‑modal</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Text + Image + Audio + Video</div>
+        </div>
+        <div class="neo-box rotate-1">
+          <div class="badge">6.2</div>
+          <div class="big" style="margin-top:10px;">Fine‑tuning</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Khi prompt/RAG chưa đủ</div>
+        </div>
+        <div class="neo-box">
+          <div class="badge">6.3</div>
+          <div class="big" style="margin-top:10px;">Local Models</div>
+          <div class="muted" style="margin-top:10px; font-size:22px; font-weight:700;">Privacy + cost + latency</div>
+        </div>
+      </div>
+      <div class="slide-footer">26 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>6.1 MULTI‑MODAL</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box rotate-1">
+          <h3>USE‑CASES</h3>
+          <ul style="margin-top:14px;">
+            <li>Vision: đọc hoá đơn, phân tích chart</li>
+            <li>Whisper: speech‑to‑text</li>
+            <li>TTS: text‑to‑speech</li>
+            <li>Video: xử lý theo frames</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate--1">
+          <h3>KHI NÀO DÙNG?</h3>
+          <div class="callout" style="margin-top:14px;">Khi “text” không đủ mô tả bài toán</div>
+          <div style="margin-top:14px; font-size:22px; font-weight:700;">Ví dụ: upload biểu đồ → AI giải thích trend</div>
+        </div>
+      </div>
+      <div class="slide-footer">27 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>6.2 FINE‑TUNING</h2>
+      <div class="row" style="margin-top:22px;">
+        <div class="col neo-box rotate--1">
+          <h3>KHI NÀO CẦN?</h3>
+          <ul style="margin-top:14px;">
+            <li>Độ chính xác cực cao</li>
+            <li>Có dataset đủ lớn</li>
+            <li>Style/voice đặc thù</li>
+          </ul>
+          <div class="callout" style="margin-top:18px;">Nếu chỉ thiếu “dữ liệu” → RAG thường đủ</div>
+        </div>
+        <div class="col neo-box rotate-1">
+          <h3>CHUẨN BỊ</h3>
+          <ul style="margin-top:14px;">
+            <li>Dataset JSONL đúng format</li>
+            <li>Train/val split</li>
+            <li>Đo bằng evals trước/sau</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-footer">28 / 30</div>
+    </section>
+
+    <section class="slide-container">
+      <div class="slide-header">lehuythai.com</div>
+      <h2>STACK KHUYÊN DÙNG</h2>
+      <div class="grid-2" style="margin-top:22px;">
+        <div class="neo-box rotate-1">
+          <h3>CORE</h3>
+          <ul style="margin-top:14px;">
+            <li>LangChain.js hoặc Vercel AI SDK</li>
+            <li>LangGraph.js cho Agent/State</li>
+            <li>Zod cho schema validation</li>
+          </ul>
+        </div>
+        <div class="neo-box rotate--1">
+          <h3>DATA + OPS</h3>
+          <ul style="margin-top:14px;">
+            <li>Supabase (Postgres + pgvector)</li>
+            <li>Tracing/Evals: LangSmith / PromptFoo</li>
+            <li>Cost: Helicone</li>
+            <li>Security: Guardrails / PII tools</li>
+          </ul>
+        </div>
+      </div>
+      <div class="neo-box" style="margin-top:18px;">
+        <div class="big">Action plan 30 ngày</div>
+        <div class="grid-3" style="margin-top:14px;">
+          <div class="callout rotate--1">Tuần 1: Prompt + JSON</div>
+          <div class="callout rotate-1">Tuần 2: Streaming + Model routing</div>
+          <div class="callout">Tuần 3–4: RAG + Agents + LLMOps</div>
+        </div>
+      </div>
+      <div class="slide-footer">29 / 30</div>
+    </section>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll('.slide-container');
+      const totalSlides = slides.length;
+      let currentSlide = 0;
+
+      function updateSlideNumbers() {
+        slides.forEach((slide, index) => {
+          if (!slide.hasAttribute('data-slide')) {
+            slide.setAttribute('data-slide', index + 1);
+          }
+        });
+      }
+
+      function scrollToSlide(index) {
+        if (index < 0 || index >= totalSlides) return;
+        currentSlide = index;
+        const slide = slides[index];
+        const slideTop = slide.offsetTop;
+        const slideHeight = slide.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollPosition = slideTop - (viewportHeight - slideHeight) / 2;
+        
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth'
+        });
+      }
+
+      function navigateSlide(direction) {
+        const newIndex = currentSlide + direction;
+        if (newIndex >= 0 && newIndex < totalSlides) {
+          scrollToSlide(newIndex);
+        }
+      }
+
+      function findCurrentSlide() {
+        const viewportCenter = window.scrollY + window.innerHeight / 2;
+        let closestSlide = 0;
+        let closestDistance = Infinity;
+
+        slides.forEach((slide, index) => {
+          const slideTop = slide.offsetTop;
+          const slideCenter = slideTop + slide.offsetHeight / 2;
+          const distance = Math.abs(viewportCenter - slideCenter);
+          
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestSlide = index;
+          }
+        });
+
+        return closestSlide;
+      }
+
+      function handleScroll() {
+        const newCurrentSlide = findCurrentSlide();
+        if (newCurrentSlide !== currentSlide) {
+          currentSlide = newCurrentSlide;
+        }
+      }
+
+      function handleKeyPress(e) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          navigateSlide(-1);
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          navigateSlide(1);
+        }
+      }
+
+      updateSlideNumbers();
+      
+      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('keydown', handleKeyPress);
+      
+      window.addEventListener('load', () => {
+        scrollToSlide(0);
+      });
+    </script>
+  </body>
+</html>
+
