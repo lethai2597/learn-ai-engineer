@@ -145,9 +145,6 @@ export function RetryExercise() {
                 <Statistic
                   title="Success"
                   value={result.success ? "Yes" : "No"}
-                  valueStyle={{
-                    color: result.success ? "#3f8600" : "#cf1322",
-                  }}
                 />
               </Card>
             </div>

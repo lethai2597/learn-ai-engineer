@@ -238,14 +238,12 @@ export function CostDashboardExercise() {
                   <Statistic
                     title="Est. Output Tokens"
                     value={analysisResult.estimatedOutputTokens}
-                    valueStyle={{ color: "#52c41a" }}
                   />
                   <Statistic
                     title="Estimated Cost"
                     value={analysisResult.estimatedCost}
                     prefix="$"
                     precision={6}
-                    valueStyle={{ color: "#cf1322" }}
                   />
                 </div>
 

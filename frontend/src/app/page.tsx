@@ -394,7 +394,7 @@ export default function Home() {
           <Timeline
             mode="start"
             items={learningModules.map((module) => ({
-              dot: <div className="text-2xl text-gray-600">{module.icon}</div>,
+              icon: <div className="text-2xl text-gray-600">{module.icon}</div>,
               content: (
                 <div className="pb-8">
                   <div className="mb-4">

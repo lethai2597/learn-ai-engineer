@@ -161,10 +161,7 @@ export function LocalChatExercise() {
           <div className="space-y-4">
             <div className="grid grid-cols-3 gap-4">
               <Card>
-                <Statistic
-                  title="Model"
-                  value={result.model}
-                />
+                <Statistic title="Model" value={result.model} />
               </Card>
               {result.tokens && (
                 <>
@@ -178,7 +175,6 @@ export function LocalChatExercise() {
                     <Statistic
                       title="Output Tokens"
                       value={result.tokens.output}
-                      valueStyle={{ color: "#3f8600" }}
                     />
                   </Card>
                 </>

@@ -143,9 +143,6 @@ export function PromptInjectionExercise() {
                 <Statistic
                   title="Is Injection"
                   value={result.isInjection ? "Yes" : "No"}
-                  valueStyle={{
-                    color: result.isInjection ? "#cf1322" : "#3f8600",
-                  }}
                 />
               </Card>
               <Card>

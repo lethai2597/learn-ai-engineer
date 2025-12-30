@@ -118,6 +118,7 @@ export function LearningSection() {
                 <div className="mt-4">
                   <Table
                     dataSource={hardwareRequirements}
+                    rowKey="modelSize"
                     columns={[
                       { title: "Model Size", dataIndex: "modelSize", key: "modelSize" },
                       { title: "VRAM Required", dataIndex: "vram", key: "vram" },
@@ -244,6 +245,7 @@ ollama pull llama3:fp16`}
         </Title>
         <Table
           dataSource={modelComparison}
+          rowKey="model"
           columns={[
             { title: "Model", dataIndex: "model", key: "model" },
             { title: "Size", dataIndex: "size", key: "size" },

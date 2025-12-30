@@ -301,22 +301,16 @@ export function PracticeSection() {
                   value={stats.totalCost}
                   prefix="$"
                   precision={2}
-                  valueStyle={{ color: "#cf1322" }}
                 />
               </Card>
               <Card>
-                <Statistic
-                  title="Total Tokens"
-                  value={stats.totalTokens}
-                  valueStyle={{ color: "#52c41a" }}
-                />
+                <Statistic title="Total Tokens" value={stats.totalTokens} />
               </Card>
               <Card>
                 <Statistic
                   title="Avg Latency"
                   value={stats.averageLatency}
                   suffix="ms"
-                  valueStyle={{ color: "#722ed1" }}
                 />
               </Card>
             </div>

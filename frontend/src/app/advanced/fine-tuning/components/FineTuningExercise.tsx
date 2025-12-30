@@ -48,7 +48,9 @@ export function FineTuningExercise() {
       return parsed;
     } catch (error) {
       throw new Error(
-        `Invalid JSON: ${error instanceof Error ? error.message : "Unknown error"}`
+        `Invalid JSON: ${
+          error instanceof Error ? error.message : "Unknown error"
+        }`
       );
     }
   };
@@ -62,7 +64,9 @@ export function FineTuningExercise() {
       setPreparedDataset(null);
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Có lỗi xảy ra khi validate dataset";
+        error instanceof Error
+          ? error.message
+          : "Có lỗi xảy ra khi validate dataset";
       message.error(errorMessage);
     }
   };
@@ -75,7 +79,9 @@ export function FineTuningExercise() {
       setPreparedDataset(result);
     } catch (error) {
       const errorMessage =
-        error instanceof Error ? error.message : "Có lỗi xảy ra khi prepare dataset";
+        error instanceof Error
+          ? error.message
+          : "Có lỗi xảy ra khi prepare dataset";
       message.error(errorMessage);
     }
   };
@@ -104,192 +110,197 @@ export function FineTuningExercise() {
         <div>
           <Title level={4} className="mb-2">
             Validate và Prepare Fine-tuning Dataset
-        </Title>
-        <Paragraph className="text-gray-600 mb-4">
-          Nhập dataset dạng JSON array. Mỗi example phải có format messages theo chuẩn OpenAI. Validate để kiểm tra dataset có hợp lệ, sau đó prepare để convert sang JSONL format.
-        </Paragraph>
-      </div>
+          </Title>
+          <Paragraph className="text-gray-600 mb-4">
+            Nhập dataset dạng JSON array. Mỗi example phải có format messages
+            theo chuẩn OpenAI. Validate để kiểm tra dataset có hợp lệ, sau đó
+            prepare để convert sang JSONL format.
+          </Paragraph>
+        </div>
 
-      <Card>
-        <Form form={form} layout="vertical" initialValues={{ dataset: exampleDataset }}>
-          <Form.Item
-            name="dataset"
-            label="Dataset (JSON Array)"
-            rules={[
-              { required: true, message: "Vui lòng nhập dataset" },
-              {
-                validator: (_, value) => {
-                  if (!value) return Promise.resolve();
-                  try {
-                    parseExamples(value);
-                    return Promise.resolve();
-                  } catch (error) {
-                    return Promise.reject(
-                      new Error(
-                        error instanceof Error ? error.message : "Invalid JSON format"
-                      )
-                    );
-                  }
-                },
-              },
-            ]}
+        <Card>
+          <Form
+            form={form}
+            layout="vertical"
+            initialValues={{ dataset: exampleDataset }}
           >
-            <TextArea
-              rows={12}
-              placeholder="Paste JSON array here..."
-              className="font-mono text-sm"
-            />
-          </Form.Item>
+            <Form.Item
+              name="dataset"
+              label="Dataset (JSON Array)"
+              rules={[
+                { required: true, message: "Vui lòng nhập dataset" },
+                {
+                  validator: (_, value) => {
+                    if (!value) return Promise.resolve();
+                    try {
+                      parseExamples(value);
+                      return Promise.resolve();
+                    } catch (error) {
+                      return Promise.reject(
+                        new Error(
+                          error instanceof Error
+                            ? error.message
+                            : "Invalid JSON format"
+                        )
+                      );
+                    }
+                  },
+                },
+              ]}
+            >
+              <TextArea
+                rows={12}
+                placeholder="Paste JSON array here..."
+                className="font-mono text-sm"
+              />
+            </Form.Item>
 
-          <Form.Item>
-            <Space>
-              <Button
-                type="primary"
-                onClick={handleValidate}
-                loading={validateDataset.isPending}
-              >
-                Validate Dataset
-              </Button>
-              <Button
-                onClick={handlePrepare}
-                loading={prepareDataset.isPending}
-                disabled={!validationResult?.isValid}
-              >
-                Prepare JSONL
-              </Button>
-              <Button
-                onClick={() => {
-                  form.resetFields();
-                  setValidationResult(null);
-                  setPreparedDataset(null);
-                }}
-              >
-                Clear
-              </Button>
-            </Space>
-          </Form.Item>
-        </Form>
-      </Card>
-
-      {validateDataset.isError && (
-        <Alert
-          description={
-            validateDataset.error?.message || "Có lỗi xảy ra khi validate dataset"
-          }
-          type="error"
-          showIcon
-        />
-      )}
-
-      {validationResult && (
-        <div className="space-y-4">
-          <Card>
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <Statistic
-                  title="Validation Status"
-                  value={validationResult.isValid ? "Valid" : "Invalid"}
-                  valueStyle={{
-                    color: validationResult.isValid ? "#3f8600" : "#cf1322",
+            <Form.Item>
+              <Space>
+                <Button
+                  type="primary"
+                  onClick={handleValidate}
+                  loading={validateDataset.isPending}
+                >
+                  Validate Dataset
+                </Button>
+                <Button
+                  onClick={handlePrepare}
+                  loading={prepareDataset.isPending}
+                  disabled={!validationResult?.isValid}
+                >
+                  Prepare JSONL
+                </Button>
+                <Button
+                  onClick={() => {
+                    form.resetFields();
+                    setValidationResult(null);
+                    setPreparedDataset(null);
                   }}
-                />
-                <Statistic
-                  title="Examples"
-                  value={validationResult.exampleCount}
-                />
-                <Statistic
-                  title="Avg Tokens/Example"
-                  value={validationResult.avgTokensPerExample}
-                />
-                <Statistic
-                  title="Total Tokens"
-                  value={validationResult.totalTokens}
-                />
-              </div>
+                >
+                  Clear
+                </Button>
+              </Space>
+            </Form.Item>
+          </Form>
+        </Card>
 
-              {validationResult.errors && validationResult.errors.length > 0 && (
-                <div>
-                  <Title level={5} className="mb-2">
-                    Errors:
-                  </Title>
-                  <Alert
-                    description={
-                      <ul className="list-disc list-inside space-y-1">
-                        {validationResult.errors.map((error, idx) => (
-                          <li key={idx}>{error}</li>
-                        ))}
-                      </ul>
-                    }
-                    type="error"
-                    showIcon
+        {validateDataset.isError && (
+          <Alert
+            description={
+              validateDataset.error?.message ||
+              "Có lỗi xảy ra khi validate dataset"
+            }
+            type="error"
+            showIcon
+          />
+        )}
+
+        {validationResult && (
+          <div className="space-y-4">
+            <Card>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <Statistic
+                    title="Validation Status"
+                    value={validationResult.isValid ? "Valid" : "Invalid"}
+                  />
+                  <Statistic
+                    title="Examples"
+                    value={validationResult.exampleCount}
+                  />
+                  <Statistic
+                    title="Avg Tokens/Example"
+                    value={validationResult.avgTokensPerExample}
+                  />
+                  <Statistic
+                    title="Total Tokens"
+                    value={validationResult.totalTokens}
                   />
                 </div>
-              )}
 
-              {validationResult.warnings && validationResult.warnings.length > 0 && (
-                <div>
-                  <Title level={5} className="mb-2">
-                    Warnings:
-                  </Title>
-                  <Alert
-                    description={
-                      <ul className="list-disc list-inside space-y-1">
-                        {validationResult.warnings.map((warning, idx) => (
-                          <li key={idx}>{warning}</li>
-                        ))}
-                      </ul>
-                    }
-                    type="warning"
-                    showIcon
-                  />
-                </div>
-              )}
-            </div>
-          </Card>
-        </div>
-      )}
+                {validationResult.errors &&
+                  validationResult.errors.length > 0 && (
+                    <div>
+                      <Title level={5} className="mb-2">
+                        Errors:
+                      </Title>
+                      <Alert
+                        description={
+                          <ul className="list-disc list-inside space-y-1">
+                            {validationResult.errors.map((error, idx) => (
+                              <li key={idx}>{error}</li>
+                            ))}
+                          </ul>
+                        }
+                        type="error"
+                        showIcon
+                      />
+                    </div>
+                  )}
 
-      {preparedDataset && (
-        <div className="space-y-4">
-          <Card>
-            <Title level={5} className="mb-4">
-              Prepared JSONL Dataset
-            </Title>
-            <Paragraph className="text-gray-600 mb-4">
-              Dataset đã được convert sang JSONL format. Bạn có thể copy và save vào file để upload lên OpenAI Fine-tuning API.
-            </Paragraph>
-            <div className="bg-gray-50 p-4 rounded border border-gray-200">
-              <div className="mb-2">
-                <Text strong>Preview (2 dòng đầu):</Text>
+                {validationResult.warnings &&
+                  validationResult.warnings.length > 0 && (
+                    <div>
+                      <Title level={5} className="mb-2">
+                        Warnings:
+                      </Title>
+                      <Alert
+                        description={
+                          <ul className="list-disc list-inside space-y-1">
+                            {validationResult.warnings.map((warning, idx) => (
+                              <li key={idx}>{warning}</li>
+                            ))}
+                          </ul>
+                        }
+                        type="warning"
+                        showIcon
+                      />
+                    </div>
+                  )}
               </div>
-              <pre className="text-xs text-gray-700 whitespace-pre-wrap font-mono overflow-x-auto">
-                {preparedDataset.preview.join("\n")}
-              </pre>
-            </div>
-            <Divider />
-            <div className="bg-gray-50 p-4 rounded border border-gray-200 max-h-96 overflow-auto">
-              <pre className="text-xs text-gray-700 whitespace-pre-wrap font-mono">
-                {preparedDataset.jsonlContent}
-              </pre>
-            </div>
-            <div className="mt-4">
-              <Button
-                onClick={() => {
-                  navigator.clipboard.writeText(preparedDataset.jsonlContent);
-                  message.success("Đã copy JSONL content vào clipboard");
-                }}
-              >
-                Copy JSONL
-              </Button>
-            </div>
-          </Card>
-        </div>
-      )}
+            </Card>
+          </div>
+        )}
+
+        {preparedDataset && (
+          <div className="space-y-4">
+            <Card>
+              <Title level={5} className="mb-4">
+                Prepared JSONL Dataset
+              </Title>
+              <Paragraph className="text-gray-600 mb-4">
+                Dataset đã được convert sang JSONL format. Bạn có thể copy và
+                save vào file để upload lên OpenAI Fine-tuning API.
+              </Paragraph>
+              <div className="bg-gray-50 p-4 rounded border border-gray-200">
+                <div className="mb-2">
+                  <Text strong>Preview (2 dòng đầu):</Text>
+                </div>
+                <pre className="text-xs text-gray-700 whitespace-pre-wrap font-mono overflow-x-auto">
+                  {preparedDataset.preview.join("\n")}
+                </pre>
+              </div>
+              <Divider />
+              <div className="bg-gray-50 p-4 rounded border border-gray-200 max-h-96 overflow-auto">
+                <pre className="text-xs text-gray-700 whitespace-pre-wrap font-mono">
+                  {preparedDataset.jsonlContent}
+                </pre>
+              </div>
+              <div className="mt-4">
+                <Button
+                  onClick={() => {
+                    navigator.clipboard.writeText(preparedDataset.jsonlContent);
+                    message.success("Đã copy JSONL content vào clipboard");
+                  }}
+                >
+                  Copy JSONL
+                </Button>
+              </div>
+            </Card>
+          </div>
+        )}
       </div>
     </div>
   );
 }
-
-
-
-

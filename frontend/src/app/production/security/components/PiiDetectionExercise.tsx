@@ -133,9 +133,6 @@ export function PiiDetectionExercise() {
                   <Statistic
                     title="Has PII"
                     value={detectionResult.hasPii ? "Yes" : "No"}
-                    valueStyle={{
-                      color: detectionResult.hasPii ? "#cf1322" : "#3f8600",
-                    }}
                   />
                 </Card>
                 <Card>

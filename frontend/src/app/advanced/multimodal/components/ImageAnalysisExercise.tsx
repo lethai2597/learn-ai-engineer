@@ -189,11 +189,7 @@ export function ImageAnalysisExercise() {
                 <Statistic title="Input Tokens" value={result.tokens.input} />
               </Card>
               <Card>
-                <Statistic
-                  title="Output Tokens"
-                  value={result.tokens.output}
-                  valueStyle={{ color: "#3f8600" }}
-                />
+                <Statistic title="Output Tokens" value={result.tokens.output} />
               </Card>
             </div>
 

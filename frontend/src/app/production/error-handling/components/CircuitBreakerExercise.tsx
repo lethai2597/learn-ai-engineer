@@ -194,18 +194,7 @@ export function CircuitBreakerExercise() {
             <Title level={5}>Circuit State</Title>
             <Card>
               <div className="grid grid-cols-2 gap-4">
-                <Statistic
-                  title="State"
-                  value={stateResult.state}
-                  valueStyle={{
-                    color:
-                      stateResult.state === "OPEN"
-                        ? "#cf1322"
-                        : stateResult.state === "HALF_OPEN"
-                        ? "#faad14"
-                        : "#3f8600",
-                  }}
-                />
+                <Statistic title="State" value={stateResult.state} />
                 <Statistic title="Failures" value={stateResult.failures} />
               </div>
               {stateResult.lastFailTime && (
@@ -226,13 +215,7 @@ export function CircuitBreakerExercise() {
             <Card>
               <div className="space-y-3">
                 <div className="grid grid-cols-2 gap-4">
-                  <Statistic
-                    title="State"
-                    value={simulateResult.state}
-                    valueStyle={{
-                      color: simulateResult.isOpen ? "#cf1322" : "#3f8600",
-                    }}
-                  />
+                  <Statistic title="State" value={simulateResult.state} />
                   <Statistic
                     title="Total Failures"
                     value={simulateResult.failures}
